@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # binary search
         first = 0
         last = len(nums) - 1
         while first < last:
