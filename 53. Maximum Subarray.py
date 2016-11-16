@@ -4,7 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # maxSubArray = max(maxSubArray_endwithindex0, maxSubArray_endwithindex1, ..., maxSubArray_endwithindex(n-1))
+        # dynamic programming
+        # maxSubArray = max(maxSubArray(endwithindex0), maxSubArray(endwithindex1), ..., maxSubArray(endwithindex(n-1)))
         maxsum = [None] * len(nums)
         maxsum[0] = nums[0]
         for i in range(1, len(nums)):
