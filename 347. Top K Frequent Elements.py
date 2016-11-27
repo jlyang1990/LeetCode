@@ -21,12 +21,12 @@ class Solution(object):
             
         def topKFrequentHelper(nums, k, first, last):
             loc = partition(nums, first, last)
-            if last - loc + 1 == k:
+            if loc == len(nums) - k:
                 return nums[loc:]
-            elif last - loc + 1 > k:
+            elif loc < len(nums) - k:
                 return topKFrequentHelper(nums, k, loc+1, last)
             else:
-                return topKFrequentHelper(nums, k-(last-loc+1), 0, loc-1)
+                return topKFrequentHelper(nums, k, first, loc-1)
                 
         nums_dic = {}
         for i in nums:

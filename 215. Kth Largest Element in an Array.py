@@ -22,11 +22,11 @@ class Solution(object):
             
         def findKthLargestHelper(nums, k, first, last):
             loc = partition(nums, first, last)
-            if last - loc + 1 == k:
+            if loc == len(nums) - k:
                 return nums[loc]
-            elif last - loc + 1 > k:
+            elif loc < len(nums) - k:
                 return findKthLargestHelper(nums, k, loc+1, last)
             else:
-                return findKthLargestHelper(nums, k-(last-loc+1), 0, loc-1)
+                return findKthLargestHelper(nums, k, first, loc-1)
         
         return findKthLargestHelper(nums, k, 0, len(nums)-1)
