@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        # method 1
         result = [[]]
         for insert_index in range(len(nums)):
             temp = []
@@ -17,3 +18,25 @@ class Solution(object):
                         break
             result = temp
         return result
+
+        # method 2: dfs
+        dic = {}
+        for i in nums:
+            if i not in dic:
+                dic[i] = 1
+            else:
+                dic[i] += 1
+        result = []
+        self.dfs(dic, result, [])
+        return result
+        
+    def dfs(self, dic, result, permutation):
+        if len(dic) == 0:
+            result.append(permutation)
+        else:
+            for i in dic:
+                dic_copy = dic.copy()
+                dic_copy[i] -= 1
+                if dic_copy[i] == 0:
+                    del dic_copy[i]
+                self.dfs(dic_copy, result, permutation+[i])
