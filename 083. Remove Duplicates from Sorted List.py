@@ -11,13 +11,12 @@ class Solution(object):
         :rtype: ListNode
         """
         # two pointers
-        if not head:
-            return head
-        slow = head
-        fast = head.next
-        while fast:
-            while fast and fast.val == slow.val:
+        if head:
+            slow = head
+            fast = head
+            while fast:
+                if not fast.next or fast.next.val != slow.val:
+                    slow.next = fast.next
+                    slow = slow.next
                 fast = fast.next
-            slow.next = fast  # automatically set slow.next = None when fast = None
-            slow = fast
         return head
