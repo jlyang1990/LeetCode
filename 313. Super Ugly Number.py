@@ -14,5 +14,5 @@ class Solution(object):
                 ugly[i] = min(ugly[i], ugly[pointer[j]]*primes[j])
             for j in range(len(primes)):
                 if ugly[i] == ugly[pointer[j]]*primes[j]:
-                    pointer[j] += 1
+                    pointer[j] += 1  # apply to all j's satisfying ugly[i] == ugly[pointer[j]]*primes[j] to avoid duplicated ugly numbers
         return ugly[n-1]
