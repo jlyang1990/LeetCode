@@ -5,12 +5,22 @@
 #         self.next = None
 
 class Solution(object):
-    def mergeTwoLists(self, l1, l2):
+    def sortList(self, head):
         """
-        :type l1: ListNode
-        :type l2: ListNode
+        :type head: ListNode
         :rtype: ListNode
         """
+        if not head or not head.next:
+            return head
+        pre_slow, slow, fast = None, head, head
+        while fast and fast.next:
+            pre_slow, slow, fast = slow, slow.next, fast.next.next
+        pre_slow.next = None
+        l1 = self.sortList(head)
+        l2 = self.sortList(slow)
+        return self.mergeTwoLists(l1, l2)
+        
+    def mergeTwoLists(self, l1, l2):
         head = ListNode(None)
         current = head
         while l1 and l2:
