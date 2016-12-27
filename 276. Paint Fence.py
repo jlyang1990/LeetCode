@@ -5,8 +5,8 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        # same[i]: total number of ways until i where the last two colors are the same
-        # diff[i]: total number of ways until i where the last two colors are different
+        # same[i]: total number of ways until i (inclusive) where the last two colors are the same
+        # diff[i]: total number of ways until i (inclusive) where the last two colors are different
         # same[i] = diff[i-1]
         # diff[i] = (same[i-1]+diff[i-1])*(k-1)
         # same[0] = 0, diff[0] = k
