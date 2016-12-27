@@ -11,9 +11,7 @@ class Solution(object):
                 dic[i] = 1
             else:
                 dic[i] += 1
-        nums_dic = []
-        for j in dic:
-            nums_dic.append((j, dic[j]))
+        nums_dic = [(j, dic[j]) for j in dic]
         result = []
         self.dfs(nums_dic, 0, result, [])
         return result

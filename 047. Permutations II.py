@@ -29,7 +29,8 @@ class Solution(object):
         result = []
         self.dfs(dic, result, [])
         return result
-        
+    
+    # dfs version 1    
     def dfs(self, dic, result, permutation):
         if len(dic) == 0:
             result.append(permutation)
@@ -40,3 +41,15 @@ class Solution(object):
                 if dic_copy[i] == 0:
                     del dic_copy[i]
                 self.dfs(dic_copy, result, permutation+[i])
+
+    # dfs version 2
+    def dfs(self, dic, result, permutation):            
+        done = True
+        for i in dic:
+            if dic[i] > 0:
+                done = False
+                dic[i] -= 1
+                self.dfs(dic, result, permutation+[i])
+                dic[i] += 1
+        if done:
+            result.append(permutation)
