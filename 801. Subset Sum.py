@@ -19,7 +19,7 @@ def subsetSumList(nums, sum):
 
 # Given a set of distinct numbers, find the number of combinations (duplicates allowed) that sum to a particular value
 # O(n*sum) time, O(sum) space
-# Compare with 377. Combination Sum IV 
+# Compare with 377. Combination Sum IV (actually a climbing stair problem)
 def subsetSum(nums, sum):
     array = [1] + [0] * sum
     for num in nums:
